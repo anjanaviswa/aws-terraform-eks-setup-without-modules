@@ -8,7 +8,7 @@ data "aws_iam_user" "eksdeveloper" {
 }
 
 resource "aws_eks_access_entry" "example" {
-  cluster_name  = aws_eks_cluster.eks-cluster.name
+  cluster_name  = muhannad-cluster.eks-cluster.name
   principal_arn = data.aws_iam_user.devops.arn
   #kubernetes_groups = ["system:masters"]
   type = "STANDARD"
