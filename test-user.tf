@@ -1,28 +1,28 @@
 
 data "aws_iam_user" "devops" {
-  user_name = "muhannad"
+  user_name = "anjana"
 }
 
 data "aws_iam_user" "eksdeveloper" {
-  user_name = "muhannad1"
+  user_name = "anjana1"
 }
 
 resource "aws_eks_access_entry" "example" {
-  cluster_name  = muhannad-cluster.eks-cluster.name
+  cluster_name  = anjana-cluster.eks-cluster.name
   principal_arn = data.aws_iam_user.devops.arn
   #kubernetes_groups = ["system:masters"]
   type = "STANDARD"
 }
 
 resource "aws_eks_access_entry" "eksdeveloper" {
-  cluster_name      = muhannad-cluster.eks-cluster.name
+  cluster_name      = anjana-cluster.eks-cluster.name
   principal_arn     = data.aws_iam_user.muhannad1.arn
   kubernetes_groups = ["developer-group"]
   type              = "STANDARD"
 }
 
 resource "aws_eks_access_policy_association" "eks-cluster-admin-policy-1" {
-  cluster_name  = muhannad-cluster.eks-cluster.name
+  cluster_name  = anjana-cluster.eks-cluster.name
   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
   principal_arn = data.aws_iam_user.devops.arn
 
