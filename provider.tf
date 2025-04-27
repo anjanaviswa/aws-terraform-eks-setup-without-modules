@@ -14,7 +14,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "muhannadthreetier1"
+    bucket = "anjanabucket"
     key    = "terraform.tfstate"
     region = "ap-south-1"
     //  dynamodb_table = "my-terraform-infra-table"
