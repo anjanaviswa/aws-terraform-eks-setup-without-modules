@@ -1,4 +1,4 @@
-
++
 data "aws_iam_user" "devops" {
   user_name = "anju"
 }
@@ -22,7 +22,7 @@ resource "aws_eks_access_entry" "eksdeveloper" {
 }
 
 resource "aws_eks_access_policy_association" "eks-cluster-admin-policy-1" {
-  cluster_name  = anjana-cluster.eks-cluster.name
+  cluster_name  = aws_eks_cluster.eks-cluster.name
   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
   principal_arn = data.aws_iam_user.devops.arn
 
