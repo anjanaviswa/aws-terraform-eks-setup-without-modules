@@ -16,7 +16,7 @@ resource "aws_eks_access_entry" "example" {
 
 resource "aws_eks_access_entry" "eksdeveloper" {
   cluster_name      = anjana-cluster.eks-cluster.name
-  principal_arn     = data.aws_iam_user.muhannad1.arn
+  principal_arn     = data.aws_iam_user.anju1.arn
   kubernetes_groups = ["developer-group"]
   type              = "STANDARD"
 }
