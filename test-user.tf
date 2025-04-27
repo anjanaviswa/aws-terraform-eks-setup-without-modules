@@ -8,15 +8,15 @@ data "aws_iam_user" "eksdeveloper" {
 }
 
 resource "aws_eks_access_entry" "example" {
-  cluster_name  = anjana-cluster.example.name
+  cluster_name  = anjana-cluster.eks-cluster.name
   principal_arn = data.aws_iam_user.devops.arn
   #kubernetes_groups = ["system:masters"]
   type = "STANDARD"
 }
 
 resource "aws_eks_access_entry" "eksdeveloper" {
-  cluster_name      = anjana-cluster.eksdeveloper.name
-  principal_arn     = data.aws_iam_user.eksdeveloper.arn
+  cluster_name      = anjana-cluster.eks-cluster.name
+  principal_arn     = data.aws_iam_user.anju1.arn
   kubernetes_groups = ["developer-group"]
   type              = "STANDARD"
 }
